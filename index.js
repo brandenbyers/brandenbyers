@@ -4,7 +4,11 @@ var Metalsmith    = require('metalsmith'),
     templates     = require('metalsmith-templates'),
     collections   = require('metalsmith-collections'),
     permalinks    = require('metalsmith-permalinks'),
+    paginate      = require('metalsmith-pagination'),
     drafts        = require('metalsmith-drafts'),
+    gist          = require('metalsmith-gist'),
+    tags          = require('metalsmith-tags'),
+    snippet       = require('metalsmith-snippet'),
     Handlebars    = require('handlebars'),
     fs            = require('fs'),
     sass          = require('metalsmith-sass');
@@ -13,7 +17,7 @@ var Metalsmith    = require('metalsmith'),
     cleanCSS      = require('metalsmith-clean-css'),
     uglify        = require('metalsmith-uglify'),
     htmlescape    = require('metalsmith-htmlescape'),
-    headingsidentifier = require('metalsmith-headings-identifier'),
+    headingsId    = require('metalsmith-headings-identifier'),
     watch         = require('metalsmith-watch'),
     serve         = require('metalsmith-serve');
 
@@ -22,36 +26,64 @@ Handlebars.registerPartial('header', fs.readFileSync(__dirname + '/templates/par
 Handlebars.registerPartial('footer', fs.readFileSync(__dirname + '/templates/partials/footer.hbt').toString());
 
 Metalsmith(__dirname)
-    .use(sass({
-      outputStyle: 'expanded',
-      outputDir: 'css/'
+  .use(sass({
+    outputStyle: 'expanded',
+    outputDir: 'css/'
+  }))
+  .use(metallic())
+  .use(autoprefixer())
+  .use(drafts())
+//  .use(tags({
+//    path: 'topics',
+//    template: 'tag.hbt',
+//    sortBy: 'date',
+//    reverse: true
+//  }))
+  .use(gist({
+    debug: true
+  }))
+  .use(collections({
+    blog: {
+      pattern: 'content/*.md',
+      sortBy: 'date',
+      reverse: true
+    }
+  }))
+  .use(paginate({
+    'collections.blog': {
+    perPage: 5,
+    template: 'paginate.hbt',
+    first: 'blog/index.html',
+    path: 'blog/:num/index.html',
+    pageMetadata: {
+      title: 'Blog Archive'
+    }
+  }
+  }))
+  .use(markdown())
+  .use(branch('content/*')
+    .use(permalinks({
+      pattern: ':collection/:title',
+      relative: false
     }))
-    .use(metallic())
-    .use(autoprefixer())
-    .use(drafts())
-    .use(collections({
-        blog: {
-            pattern: 'content/blog/*.md',
-            sortBy: 'date',
-            reverse: true
-        }
-    }))
-    .use(markdown())
-    .use(templates('handlebars'))
-      .use(permalinks({
-          pattern: ':collection/:title',
-          relative: false
-      }))
+  )
 //    .use(cleanCSS())
 //    .use(uglify())
-    .use(htmlescape())
-    .use(headingsidentifier())
-    .use(watch({
-      pattern: '**/*',
-      livereload: true
-    }))
-    .use(serve())
-    .destination('./build')
-    .build(function(err, files) {
-        if (err) { throw err; }
-    });
+  .use(snippet({
+    maxLength: 250,
+    suffix: '...'
+  }))
+  .use(templates('handlebars'))
+  .use(htmlescape())
+  .use(headingsId({
+    allow: "headingAnchor"
+  }))
+  .use(watch({
+    pattern: '**/*',
+    livereload: true
+  }))
+  .use(serve())
+  .destination('./build')
+  .build(function(err, files) {
+    if (err) { throw err; }
+  });

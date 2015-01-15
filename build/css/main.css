@@ -328,6 +328,8 @@ a:hover {
 
 h2:hover .heading-anchor span:before, h3:hover .heading-anchor span:before, h4:hover .heading-anchor span:before {
   content: "#";
+  font-size: 25px;
+  font-weight: 700;
   color: #a2a2a2;
   background-color: transparent;
   transition: none;
@@ -337,7 +339,6 @@ h2:hover .heading-anchor span:before, h3:hover .heading-anchor span:before, h4:h
   bottom: 0px; }
 
 header {
-  background: #EEEEEE;
   max-width: -webkit-fill-available;
   max-width: -moz-available;
   max-width: fill-available;
@@ -448,6 +449,21 @@ footer a:hover {
   font-size: 28px;
   line-height: 28px;
   bottom: 40px; }
+
+.b-gray {
+  background: #EEEEEE; }
+
+.b-blue {
+  background: #E9F4F4; }
+
+.b-yellow {
+  background: #F9EE70; }
+
+.b-pink {
+  background: #F9E3DE; }
+
+.b-white {
+  background: #FFFFFF; }
 
 /*
     Name:       Base16 Eighties Light
