@@ -1,0 +1,20 @@
+{{> header}}
+
+<div class="container">
+<article>
+  <h1>Blog</h1>
+  <h2>Yes please.</h2>
+  <ul>
+    {{#each pagination.files}}
+      <li>
+        <a href="/{{this.path}}">
+        <h3>{{this.title}}</h3></a>
+          <article>{{this.snippet}}</article>
+      </li>
+    {{/each}}
+  </ul>
+</article>
+</div>
+
+{{> footer}}
+
