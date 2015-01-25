@@ -39,9 +39,7 @@ Metalsmith(__dirname)
 //    sortBy: 'date',
 //    reverse: true
 //  }))
-  .use(gist({
-    debug: true
-  }))
+//  .use(gist())
   .use(collections({
     blog: {
       pattern: 'content/*.md',
@@ -51,10 +49,10 @@ Metalsmith(__dirname)
   }))
   .use(paginate({
     'collections.blog': {
-    perPage: 5,
+    perPage: 100,
     template: 'paginate.hbt',
     first: 'blog/index.html',
-    path: 'blog/:num/index.html',
+    path: 'blog/page/:num/index.html',
     pageMetadata: {
       title: 'Blog Archive'
     }

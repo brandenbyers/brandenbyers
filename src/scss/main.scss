@@ -51,6 +51,12 @@ body {
   @include sassy-gridlover-body($sgl-base-font-size, true);
   margin: 0;
   padding: 0;
+  animation: fadein 1s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 article {
@@ -167,7 +173,7 @@ button:active {
   top: 2px;
 }
 
-button:hover {
+button:hover, button:focus {
   background: transparent;
   color: $black;
 }
@@ -183,7 +189,7 @@ a {
   transition: all 0.3s ease;
 }
 
-a:hover {
+a:hover, a:focus {
   color: $gray;
   background-color: $black;
   border: none;
@@ -205,7 +211,7 @@ a:hover {
   vertical-align: middle;
 }
 
-.heading-anchor:hover {
+.heading-anchor:hover, .heading-anchor:focus {
   background-color: transparent;
 }
 
@@ -280,12 +286,12 @@ nav ul li a {
   display: inline-block;
 }
 
-header a:hover {
+header a:hover, header a:hover {
   background-color: transparent;
   color: darken($gray, 40%);
 }
 
-nav ul a:hover {
+nav ul a:hover, nav ul a:focus {
   background-color: $white;
   color: darken($gray, 40%);
 }
@@ -317,7 +323,7 @@ footer img {
   transition: transform ease-out 0.1s;
 }
 
-footer img:hover {
+footer img:hover, footer img:focus {
   opacity: 1;
   transform: scale(0.9);
 }
@@ -333,6 +339,49 @@ footer a {
 }
 
 footer a:hover{
+  background-color: transparent;
+}
+
+// Blog List
+
+.paginate {
+  padding: 0 0 80px 0;
+}
+
+.paginate h1 {
+  text-align: center;
+  margin: 0;
+  padding: 100px 0 0 0;
+}
+
+.paginate h2 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0 0 20px 0;
+}
+
+.paginate h3 {
+  line-height: 10px;
+  font-size: 24px;
+  font-weight: 300;
+  margin: 0;
+  padding: 10px 10px 0 10px;
+}
+
+.paginate p {
+}
+
+.paginate article {
+  font-size: 15px;
+  line-height: 26px;
+  padding: 0 28px 10px 28px;
+}
+
+.paginate a {
+  border: none;
+  text-transform: capitalize;
   background-color: transparent;
 }
 

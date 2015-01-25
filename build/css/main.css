@@ -156,7 +156,23 @@ body {
   font-size: 1.1875rem;
   line-height: 2.0625rem;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  -webkit-animation: fadein 1s;
+  animation: fadein 1s; }
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0; }
+
+  to {
+    opacity: 1; } }
+
+@keyframes fadein {
+  from {
+    opacity: 0; }
+
+  to {
+    opacity: 1; } }
 
 article {
   max-width: 750px;
@@ -291,7 +307,7 @@ button:after {
 button:active {
   top: 2px; }
 
-button:hover {
+button:hover, button:focus {
   background: transparent;
   color: #33373a; }
 
@@ -303,7 +319,7 @@ a {
   padding: 0.2em;
   transition: all 0.3s ease; }
 
-a:hover {
+a:hover, a:focus {
   color: #EEEEEE;
   background-color: #33373a;
   border: none; }
@@ -323,7 +339,7 @@ a:hover {
   color: #a2a2a2;
   vertical-align: middle; }
 
-.heading-anchor:hover {
+.heading-anchor:hover, .heading-anchor:focus {
   background-color: transparent; }
 
 h2:hover .heading-anchor span:before, h3:hover .heading-anchor span:before, h4:hover .heading-anchor span:before {
@@ -385,11 +401,11 @@ nav ul li a {
   text-transform: capitalize;
   display: inline-block; }
 
-header a:hover {
+header a:hover, header a:hover {
   background-color: transparent;
   color: #888888; }
 
-nav ul a:hover {
+nav ul a:hover, nav ul a:focus {
   background-color: #FFFFFF;
   color: #888888; }
 
@@ -418,7 +434,7 @@ footer img {
     footer img {
       width: 60px; } }
 
-footer img:hover {
+footer img:hover, footer img:focus {
   opacity: 1;
   -webkit-transform: scale(0.9);
   -ms-transform: scale(0.9);
@@ -433,6 +449,38 @@ footer a {
   border: none; }
 
 footer a:hover {
+  background-color: transparent; }
+
+.paginate {
+  padding: 0 0 80px 0; }
+
+.paginate h1 {
+  text-align: center;
+  margin: 0;
+  padding: 100px 0 0 0; }
+
+.paginate h2 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0 0 20px 0; }
+
+.paginate h3 {
+  line-height: 10px;
+  font-size: 24px;
+  font-weight: 300;
+  margin: 0;
+  padding: 10px 10px 0 10px; }
+
+.paginate article {
+  font-size: 15px;
+  line-height: 26px;
+  padding: 0 28px 10px 28px; }
+
+.paginate a {
+  border: none;
+  text-transform: capitalize;
   background-color: transparent; }
 
 .page-not-found {
