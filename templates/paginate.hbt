@@ -1,7 +1,7 @@
 {{> header}}
 
 <div class="container">
-<article class="paginate">
+<article class="lead-center">
   <h1>Words and Images</h1>
   <h2>about code, food, and goats</h2>
     {{#each pagination.files}}
