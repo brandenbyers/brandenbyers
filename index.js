@@ -1,5 +1,6 @@
 var Metalsmith    = require('metalsmith'),
     branch        = require('metalsmith-branch'),
+    // markdown      = require('metalsmith-markdown-remarkable')
     markdown      = require('metalsmith-markdown'),
     templates     = require('metalsmith-templates'),
     collections   = require('metalsmith-collections'),

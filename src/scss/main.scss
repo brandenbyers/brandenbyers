@@ -15,8 +15,9 @@ $white: #FFFFFF;
 $gray: #EEEEEE;
 $dark-gray: #403E3B;
 $light-blue: #E9F4F4;
-$yellow: #F9EE70;
+$yellow: #FDE847;
 $light-pink: #F9E3DE;
+$hot-pink: #FF3B88;
 
 // Defaults
 
@@ -52,6 +53,10 @@ body {
   margin: 0;
   padding: 0;
   animation: fadein 1s;
+}
+
+.hot-pink-text {
+  color: $hot-pink;
 }
 
 @keyframes fadein {
@@ -178,6 +183,14 @@ button:hover, button:focus {
   color: $black;
 }
 
+.hero {
+  position: relative;
+  background: $yellow;
+  height: 60vh;
+  width: 100vw;
+  margin: 0 auto;
+}
+
 // Links
 
 a {
@@ -190,7 +203,7 @@ a {
 }
 
 a:hover, a:focus {
-  color: $gray;
+  color: $hot-pink;
   background-color: $black;
   border: none;
 }
@@ -288,18 +301,18 @@ nav ul li a {
 
 header a:hover, header a:hover {
   background-color: transparent;
-  color: darken($gray, 40%);
+  color: $hot-pink;
 }
 
 nav ul a:hover, nav ul a:focus {
   background-color: $white;
-  color: darken($gray, 40%);
+  color: $hot-pink;
 }
 
 // Footer
 
 footer {
-  background: $gray;
+  background: $hot-pink;
   max-width: fill-available;
   width: 100%;
   height: 300px;
@@ -313,7 +326,7 @@ footer .text-center {
 }
 
 footer img {
-  width: 40px;
+  width: 45px;
   @media (max-width: 480px) {
     width: 60px;
   }
@@ -325,13 +338,13 @@ footer img {
 
 footer img:hover, footer img:focus {
   opacity: 1;
-  transform: scale(0.9);
+  transform: scale(2.2);
 }
 
 footer .copy {
   font-size: 12px;
   padding: 9px 0 0 0;
-  color: darken( $gray, 30% );
+  color: darken( $gray, 80% );
 }
 
 footer a {
@@ -405,7 +418,7 @@ footer a:hover{
   bottom: 40px;
 }
 
-.lead-bottom h2 .email {
+.email {
   text-transform: lowercase;
 }
 
@@ -416,7 +429,6 @@ $white: #FFFFFF;
 $gray: #EEEEEE;
 $dark-gray: #403E3B;
 $light-blue: #E9F4F4;
-$yellow: #F9EE70;
 $light-pink: #F9E3DE;
 .b-gray {
   background: $gray;
@@ -431,7 +443,7 @@ $light-pink: #F9E3DE;
 }
 
 .b-pink {
-  background: $light-pink;
+  background: pink;
 }
 
 .b-white {
@@ -441,88 +453,120 @@ $light-pink: #F9E3DE;
 // Highlight.js
 
 /*
-    Name:       Base16 Eighties Light
-    Author:     Chris Kempson (http://chriskempson.com)
-    highlight.js v8.0 template by Jan T. Sott (https://github.com/idleberg/base16-highlight.js)
-    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+Monokai style - ported by Luigi Maselli - http://grigio.org
 */
-
-/* Eighties Comment */
-.hljs-comment,
-.hljs-title {
-  color: #747369;
-}
-
-/* Eighties Red */
-.hljs-variable,
-.hljs-attribute,
-.hljs-tag,
-.hljs-regexp,
-.ruby .hljs-constant,
-.xml .hljs-tag .hljs-title,
-.xml .hljs-pi,
-.xml .hljs-doctype,
-.html .hljs-doctype,
-.css .hljs-id,
-.css .hljs-class,
-.css .hljs-pseudo {
-  color: #f2777a;
-}
-
-/* Eighties Orange */
-.hljs-number,
-.hljs-preprocessor,
-.hljs-built_in,
-.hljs-literal,
-.hljs-params,
-.hljs-constant {
-  color: #f99157;
-}
-
-/* Eighties Yellow */
-.ruby .hljs-class .hljs-title,
-.css .hljs-rules .hljs-attribute {
-  color: #ffcc66;
-}
-
-/* Eighties Green */
-.hljs-string,
-.hljs-value,
-.hljs-inheritance,
-.hljs-header,
-.ruby .hljs-symbol,
-.xml .hljs-cdata {
-  color: #99cc99;
-}
-
-/* Eighties Aqua */
-.css .hljs-hexcolor {
-  color: #66cccc;
-}
-
-/* Eighties Blue */
-.hljs-function,
-.python .hljs-decorator,
-.python .hljs-title,
-.ruby .hljs-function .hljs-title,
-.ruby .hljs-title .hljs-keyword,
-.perl .hljs-sub,
-.javascript .hljs-title,
-.coffeescript .hljs-title {
-  color: #6699cc;
-}
-
-/* Eighties Purple */
-.hljs-keyword,
-.javascript .hljs-function {
-  color: #cc99cc;
-}
 
 .hljs {
   display: block;
-  background: $white;
-  color: #515151;
+  overflow-x: auto;
   padding: 0.5em;
+  background: #FFFFFF;
+  -webkit-text-size-adjust: none;
+}
+
+.hljs-tag,
+.hljs-tag .hljs-title,
+.hljs-keyword,
+.hljs-literal,
+.hljs-strong,
+.hljs-change,
+.hljs-winutils,
+.hljs-flow,
+.nginx .hljs-title,
+.tex .hljs-special {
+  color: $hot-pink;
+}
+
+.hljs {
+  color: $black;
+}
+
+.hljs .hljs-constant,
+.asciidoc .hljs-code,
+.markdown .hljs-code {
+  color: #66d9ef;
+}
+
+.hljs-code,
+.hljs-class .hljs-title,
+.hljs-header {
+  color: $black;
+}
+
+.hljs-link_label,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.hljs-value,
+.hljs-regexp {
+  color: #bf79db;
+}
+
+.hljs-link_url,
+.hljs-tag .hljs-value,
+.hljs-string,
+.hljs-bullet,
+.hljs-subst,
+.hljs-title,
+.hljs-emphasis,
+.hljs-type,
+.hljs-preprocessor,
+.hljs-pragma,
+.ruby .hljs-class .hljs-parent,
+.hljs-built_in,
+.django .hljs-template_tag,
+.django .hljs-variable,
+.smalltalk .hljs-class,
+.django .hljs-filter .hljs-argument,
+.smalltalk .hljs-localvars,
+.smalltalk .hljs-array,
+.hljs-attr_selector,
+.hljs-pseudo,
+.hljs-addition,
+.hljs-stream,
+.hljs-envvar,
+.apache .hljs-tag,
+.apache .hljs-cbracket,
+.tex .hljs-command,
+.hljs-prompt,
+.hljs-name {
+  color: #a6e22e;
+}
+
+.hljs-comment,
+.hljs-annotation,
+.smartquote,
+.hljs-blockquote,
+.hljs-horizontal_rule,
+.hljs-decorator,
+.hljs-pi,
+.hljs-doctype,
+.hljs-deletion,
+.hljs-shebang,
+.apache .hljs-sqbracket,
+.tex .hljs-formula {
+  color: #75715e;
+}
+
+.hljs-keyword,
+.hljs-literal,
+.css .hljs-id,
+.hljs-doctag,
+.hljs-title,
+.hljs-header,
+.hljs-type,
+.vbscript .hljs-built_in,
+.rsl .hljs-built_in,
+.smalltalk .hljs-class,
+.diff .hljs-header,
+.hljs-chunk,
+.hljs-winutils,
+.bash .hljs-variable,
+.apache .hljs-tag,
+.tex .hljs-special,
+.hljs-request,
+.hljs-status {
+  font-weight: bold;
 }
 
 .coffeescript .javascript,
@@ -534,3 +578,98 @@ $light-pink: #F9E3DE;
 .xml .hljs-cdata {
   opacity: 0.5;
 }
+
+// /*
+//     Name:       Base16 Eighties Light
+//     Author:     Chris Kempson (http://chriskempson.com)
+//     highlight.js v8.0 template by Jan T. Sott (https://github.com/idleberg/base16-highlight.js)
+//     Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+// */
+//
+// /* Eighties Comment */
+// .hljs-comment,
+// .hljs-title {
+//   color: #747369;
+// }
+//
+// /* Eighties Red */
+// .hljs-variable,
+// .hljs-attribute,
+// .hljs-tag,
+// .hljs-regexp,
+// .ruby .hljs-constant,
+// .xml .hljs-tag .hljs-title,
+// .xml .hljs-pi,
+// .xml .hljs-doctype,
+// .html .hljs-doctype,
+// .css .hljs-id,
+// .css .hljs-class,
+// .css .hljs-pseudo {
+//   color: #f2777a;
+// }
+//
+// /* Eighties Orange */
+// .hljs-number,
+// .hljs-preprocessor,
+// .hljs-built_in,
+// .hljs-literal,
+// .hljs-params,
+// .hljs-constant {
+//   color: #f99157;
+// }
+//
+// /* Eighties Yellow */
+// .ruby .hljs-class .hljs-title,
+// .css .hljs-rules .hljs-attribute {
+//   color: #ffcc66;
+// }
+//
+// /* Eighties Green */
+// .hljs-string,
+// .hljs-value,
+// .hljs-inheritance,
+// .hljs-header,
+// .ruby .hljs-symbol,
+// .xml .hljs-cdata {
+//   color: #99cc99;
+// }
+//
+// /* Eighties Aqua */
+// .css .hljs-hexcolor {
+//   color: #66cccc;
+// }
+//
+// /* Eighties Blue */
+// .hljs-function,
+// .python .hljs-decorator,
+// .python .hljs-title,
+// .ruby .hljs-function .hljs-title,
+// .ruby .hljs-title .hljs-keyword,
+// .perl .hljs-sub,
+// .javascript .hljs-title,
+// .coffeescript .hljs-title {
+//   color: #6699cc;
+// }
+//
+// /* Eighties Purple */
+// .hljs-keyword,
+// .javascript .hljs-function {
+//   color: #cc99cc;
+// }
+//
+// .hljs {
+//   display: block;
+//   background: $white;
+//   color: #515151;
+//   padding: 0.5em;
+// }
+//
+// .coffeescript .javascript,
+// .javascript .xml,
+// .tex .hljs-formula,
+// .xml .javascript,
+// .xml .vbscript,
+// .xml .css,
+// .xml .hljs-cdata {
+//   opacity: 0.5;
+// }

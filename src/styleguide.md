@@ -1,6 +1,6 @@
 ---
 template: page.hbt
-bheader: b-gray
+bheader: b-yellow
 ---
 
 # Kitsch retro
