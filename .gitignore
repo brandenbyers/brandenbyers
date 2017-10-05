@@ -1,4 +1,10 @@
-npm_modules
-bower_components
-node_modules
-build
+_site
+.sass-cache
+.DS_Store
+.jekyll-metadata
+.ruby-version
+
+# Ignore the config file that's used for gh-pages.
+_config.gh-pages.yml
+
+Gemfile.lock
