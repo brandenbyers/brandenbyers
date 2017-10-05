@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Test Them Puzzles</title>
+
+    <meta name="description" content="What Test-Driven Learning Can Teach About JS and TDD">
+    <meta name="author" content="Branden Byers">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/white.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Test Them Puzzles</h1>
+        </section>
+
+        <section>
+          <h1>Follow along</h1>
+          <h3>brandenbyers.com/slides/test-them-puzzles</h3>
+        </section>
+
+        <section>
+          <h1>Puzzles</h1>
+        </section>
+
+        <section>
+          <img class="stretch" src="img/drawing-sudoku.svg" alt="">
+        </section>
+
+        <section>
+          <img class="stretch" src="img/drawing-rubiks.svg" alt="">
+        </section>
+
+        <section>
+          <img class="stretch" src="img/drawing-crossword.svg" alt="">
+        </section>
+
+        <section>
+          <img class="stretch" src="img/puzzlejs.png" alt="">
+        </section>
+
+        <section>
+          <h2>Puzzles are fun!</h2>
+        </section>
+
+        <section>
+          <h2>Learning to code is hard</h2>
+        </section>
+
+        <section>
+          <h2>Testing can feel cumbersome</h2>
+        </section>
+
+        <section>
+          <h2>Puzzle are nimble</h2>
+        </section>
+
+        <section>
+          <h1>Coding Puzzles</h1>
+        </section>
+
+        <section data-background="img/crow-puzzled.jpg" data-background-transition="none"></section>
+
+        <section data-background="img/parrot-head.jpg" data-background-transition="none"></section>
+
+        <section data-background="img/crow-behind.jpg" data-background-transition="none"></section>
+
+        <section>
+          <h1>Coding Puzzles</h1>
+        </section>
+
+        <section>
+          <h2>Next to Last Item in a List</h2>
+          <p>Return the next-to-last item from an array.</p>
+        </section>
+
+        <section>
+          <h2>The Gas Station Problem</h2>
+          <div class="font-small">
+            <p>There is a truck driving clockwise on a circular route;<br/>the truck has a gas tank with infinite capacity, initially empty.</p>
+            <p>Along the route are gas stations with varying amounts of gas available:<br />you are given a list of gas stations<br />with the amounts of gas they have available<br />and the amounts of gas required to drive to the next gas station.</p>
+            <p>You must find a gas station that,<br />for a trip starting from that gas station,<br />will be able to return to that gas station.</p>
+          </div>
+        </section>
+
+        <section>
+          <h3>Convert Hindsight into Foresight...</h3>
+        </section>
+
+        <section>
+          <h3>Investigating the Torricelli point of a triangle</h3>
+          <p class="font-small text-padded">Let ABC be a triangle with all interior angles being less than 120 degrees.<br />Let X be any point inside the triangle and let XA = p, XC = q, and XB = r.<br /><br />Fermat challenged Torricelli to find the position of X such that p + q + r was minimised.<br /><br />Torricelli was able to prove that if equilateral triangles AOB, BNC and AMC are constructed on each side of triangle ABC, the circumscribed circles of AOB, BNC, and AMC will intersect at a single point, T, inside the triangle.<br />Moreover he proved that T, called the Torricelli/Fermat point, minimises p + q + r. Even more remarkable,<br />it can be shown that when the sum is minimised, AN = BM = CO = p + q + r and that AN, BM and CO also intersect at T.<br /><br />If the sum is minimised and a, b, c, p, q and r are all positive integers we shall call triangle ABC a Torricelli triangle. For example, a = 399, b = 455, c = 511 is an example of a Torricelli triangle, with p + q + r = 784.<br /><br />Find the sum of all distinct values of p + q + r ≤ 120000 for Torricelli triangles.</p>
+        </section>
+
+        <section>
+          <h3>Simulate Real World Problems</h3>
+          <h1>Bite-size Chunks</h1>
+        </section>
+
+        <section>
+          <h1>Syntactic Wilderness</h1>
+          <h3>Wander and you might get lost</h3>
+        </section>
+
+        <section>
+          <h1>Why Puzzles?</h1>
+        </section>
+
+        <section>
+          <h1>Why write puzzles?</h1>
+        </section>
+
+        <section>
+          <h2>Programmer Practice</h2>
+          <ul>
+            <li>Athletes Train</li>
+            <li>Musicians Rehearse</li>
+            <li>Lawyers &amp; Doctors Practice</li>
+          </ul>
+        </section>
+
+        <section>
+          <p>Test-Driven Learning</p>
+          <!-- images of TDL papers here -->
+        </section>
+
+        <section>
+          <h2>Puzzles Are</h2>
+          <img class="stretch universal" src="img/universal.svg" alt="universal">
+        </section>
+
+        <section>
+          <h1>Aha!</h1>
+          <h4>Dopamine drip</h4>
+          <img class="stretch" src="img/dopamine-drip.svg" alt="">
+        </section>
+
+        <section>
+          <img class="stretch" src="img/stomachion.svg" alt="">
+          <aside class="notes">
+            Oldest known mathematical/mechanical puzzle
+            Archimedes' Stomachion or Ostomachion
+            3rd Century BCE
+            14 pieces
+            November 2003, Bill Cutler found 536 possible arrangments without rotating or flipping
+          </aside>
+        </section>
+
+        <section>
+          <img class="stretch" src="img/go-problem.svg" alt="">
+        </section>
+
+        <section>
+          <img class="stretch" src="img/tower-of-hanoi.svg" alt="">
+          <p><a href="http://rosettacode.org/wiki/Towers_of_Hanoi#JavaScript">rosettacode.org/wiki/towers_of_hanoi</a></p>
+        </section>
+
+        <section>
+          <h3>Are you a<h3>
+          <h1>Parrot or a Crow?</h1>
+        </section>
+
+        <section>
+          <h1>Parrots</h1>
+          <ul>
+            <li>Inquisitive</li>
+            <li>Destructive exploration</li>
+            <li>Playful learners</li>
+            <li>Pull, tear, scratch, probe</li>
+            <li>Haphazardly dig for food</li>
+          </ul>
+          <img class="bird-page" src="img/parrot-box-2.svg" alt="">
+        </section>
+
+        <section>
+          <h1>Crows</h1>
+          <ul>
+            <li>Curious</li>
+            <li>Explore from a distance</li>
+            <li>Methodical learners</li>
+            <li>Graceful tool users</li>
+            <li>Precisely prod for food</li>
+          </ul>
+          <img class="bird-page" src="img/crow-box-2.svg" alt="">
+        </section>
+
+        <section>
+          <h2>Code like a...</h2>
+          <div class="column-left">
+            <h3>PARROT</h3>
+            <ul>
+              <li>Inquisitive</li>
+              <li>Destructive exploration</li>
+              <li>Playful learners</li>
+              <li>Pull, tear, scratch probe</li>
+              <li>Haphazardly dig for food</li>
+            </ul>
+          </div>
+          <div class="column-right">
+            <h3>CROW</h3>
+            <ul>
+              <li>Curious</li>
+              <li>Explores from a distance</li>
+              <li>Methodical learners</li>
+              <li>Graceful tool users</li>
+              <li>Precisely prod for food</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <img class="stretch" src="img/crow-box-2.svg" alt="">
+          <p class="font-small"><a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0020231">Flexibility in Problem Solving and Tool Use of Kea and New Caledonian Crows in a Multi Access Box Paradigm</a></p>
+        </section>
+
+        <section>
+          <h2>Code Challenge Websites</h2>
+          <ul>
+            <li><a href="http://www.codewars.com/">codewars.com</a></li>
+            <li><a href="https://www.hackerrank.com/">hackerrank.com</a></li>
+            <li><a href="http://coderbyte.com/">coderbyte.com</a></li>
+            <!-- <li><a href="https://www.codeeval.com/">codeeval.com</a></li> -->
+            <!-- <li><a href="http://www.topcoder.com/">topcoder.com</a></li> -->
+            <li><a href="https://projecteuler.net/">projecteuler.net</a></li>
+            <!-- &#38;lt;&#38;#8211; link to CLI node version -->
+            <li><a href="http://www.freecodecamp.com/challenges/bonfire-meet-bonfire">freecodecamp.com</a></li>
+            <li><a href="http://nodeschool.io/">nodeschool.io</a></li>
+            <li><a href="http://exercism.io">exercism.io</a></li>
+            <!-- <li><a href="http://programmingpraxis.com/contents/about/">programmingpraxis.com/contents/about/</a></li> -->
+          </ul>
+        </section>
+
+        <section data-background="#2C2D30" data-background-transition="none"><img src="img/code-wars-1.jpg" alt=""></section>
+
+        <section data-background="#F0F0F0" data-background-transition="none"><img src="img/free-code-camp-1.jpg" alt=""></section>
+
+        <section>
+          <h1>How-to</h1>
+          <h3>Let's make some sausage!</h3>
+        </section>
+
+        <section>
+          <pre><code>var add = function (a, b) {
+  return a + b;
+};</code><code class="fragment">
+expect(add(2, 2).to.equal(4));</code><code class="fragment">expect(add(2, '2').to.equal('22'));</code><code class="fragment">expect(add('con','cat').to.equal('concat'));</code></pre>
+        </section>
+
+        <section>
+          <h1>Assumptions</h1>
+          <img src="img/peach-emoji.png">
+          <h4>Bad!</h4>
+        </section>
+
+        <section>
+          <pre><code>var add = function (a, b) {
+  if(typeof a + b === 'string') {
+    return 'Go fish';
+  }
+  ...
+};</code><code>
+expect(add('con','cat')).to.equal('Go fish');</code><code class="fragment">expect(add(2, 2)).to.be.a('number')</code></pre>
+        </section>
+
+        <section>
+          <pre><code>var add = function (a, b) {
+  return parseInt(a) + parseInt(b);
+};</code><code>
+expect(add(2, '2').to.equal(4));</code><code class="fragment code-red">expect(add(2.22, 2.22).to.equal(4.44));</code><code class="fragment">
+// AssertionError: expected 4 to equal 4.44</code></pre>
+        </section>
+
+        <section>
+          <img src="img/peach-emoji.png">
+        </section>
+
+        <section>
+          <h1>Chai.js</h1>
+          <h3>expect()</h3>
+          <h3>should()</h3>
+          <h3>assert()</h3>
+        </section>
+
+        <section>
+          <pre><code>expect('something').to.contain('thing');
+
+expect('Hello World').to.be.a('string');</code></pre>
+        </section>
+
+        <section>
+          <h1>Draft Ideas</h1>
+          <h3>"Real-World"</h3>
+          <h3>Contrived</h3>
+          <h3>Inspired by Fiction</h3>
+        </section>
+
+        <section><img class="stretch" src="img/fifty-shades-of-repetition.svg" alt="Fifty Shades of Repetition"></section>
+
+        <section><img class="stretch" src="img/harry-potter-puzzle.svg" alt="Harry Potter and the Sorcerer's Puzzle"></section>
+
+        <section><img class="stretch" src="img/enders-puzzle.svg" alt="Ender's Puzzle"></section>
+
+        <section>
+          <h1>Libraries</h1>
+          <h3>Underscore</h3>
+          <h3>Lodash</h3>
+          <h3>Ramda</h3>
+          <h3>Moment</h3>
+        </section>
+
+        <section>
+          <h2>_.shuffle</h2>
+          <pre><code class="font-medium">test('shuffle', function() {
+  deepEqual(_.shuffle([1]), [1], 'behaves correctly on size 1 arrays');
+  var numbers = _.range(20);
+  var shuffled = _.shuffle(numbers);
+  notDeepEqual(numbers, shuffled, 'does change the order'); // Chance of false negative: 1 in ~2.4*10^18
+  notStrictEqual(numbers, shuffled, 'original object is unmodified');
+  deepEqual(numbers, _.sortBy(shuffled), 'contains the same members before and after shuffle');
+
+  shuffled = _.shuffle({a: 1, b: 2, c: 3, d: 4});
+  equal(shuffled.length, 4);
+  deepEqual(shuffled.sort(), [1, 2, 3, 4], 'works on objects');
+});</code></pre>
+        </section>
+
+        <section>
+          <h1>Frameworks</h1>
+          <h3>Angular, React, etc...</h3>
+          <h2>Docs and tests</h2>
+          <h4>Syntactic Sugar</h4>
+        </section>
+
+        <section>
+          <h1>Work Backwards</h1>
+          <h3>Solved software problem</h3>
+          <h3>Break it down</h3>
+          <h3>Use a bite-size chunk</h3>
+          <p><a href="https://rosettacode.org">rosettacode.org</a></p>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Slasher Film</h1>
+          <p>Return the surviving elements of an array<br />after chopping off n elements from the head.</p>
+          <pre><code>
+                         slasher([1, 2, 3], 2);</code></pre>
+        </section>
+
+        <section>
+          <pre><code>expect(slasher([1,2,3],2)).to.equal([3]);</code><code class="fragment">expect(slasher([1,2,3],0)).to.equal([1,2,3]);</code><code class="fragment">expect(slasher([1,2,3],9)).to.equal([]);</code></pre>
+        </section>
+
+        <section>
+          <pre>
+            <code>expect(slasher([1,2,3],2)).to.equal(['Three, you're lucky to still be.']);</code>
+          </pre>
+        </section>
+
+        <section>
+          <pre>
+            <code>expect(slasher([1,2,3],0)).to.equal(['All numbers live another day.']);</code>
+          </pre>
+        </section>
+
+        <section>
+          <pre>
+            <code>expect(slasher([1,2,3],9)).to.equal(['It is a sad day.']);</code>
+          </pre>
+        </section>
+
+        <section>
+          <pre><code>expect(slasher(['1,354','22','4900'],1)).to.equal(['Four thousand nine hundred and twenty-two; you are amongst the lucky few.']);</code></pre>
+        <p class="fragment" data-fragment-index="1">Return a string <span class="fragment" data-fragment-index="3">of the the English word equivalents</span><br />of the surviving elements <span class="fragment" data-fragment-index="2">(numbers)</span> in an array<br />after chopping off n elements from the head.<br /><span class="fragment" data-fragment-index="4">The numbers must be listed from last to first.</code><br /><span class="fragment" data-fragment-index="5">The string should be finished with a phrase<br />that rhymes with the last number listed.</span></p>
+        </section>
+
+        <section>
+          <h2>Rhyming Numbers Poem</h2>
+          <p>You will be given an array of numbers.<br /><span class="fragment" data-fragment-index="1">Each number will be between 0 and 9.</span><br /><span class="fragment" data-fragment-index="2">These numbers may be integers or strings.</span><br /><span class="fragment" data-fragment-index="3">If a number is in a string, it may be a digit or word.</span><br /><span class="fragment" data-fragment-index="4">Return a nonsense poem,</span><br /><span class="fragment" data-fragment-index="5"> where each line starts with a number from the array</span><br /><span class="fragment" data-fragment-index="6">followed by a phrase ending in a word that rhymes with that number.</p>
+        </section>
+
+        <section>
+          <p>Nine, you smell like wine<br />Five, chicken dumplings make me feel alive<br />Three, you be lost deep in the sea<br />Two, please stop sniffing glue<br />One, this poem is done</p>
+        </section>
+
+        <!-- show initial function -->
+        <section>
+          <pre><code data-trim>var rhymingNumberPoem = function(arr) {</code><code class="code-grey" data-trim>  // this is a poet but didn't know it</code><code data-trim>  return str;
+};</code></pre>
+        </section>
+
+        <!-- show test case -->
+        <section>
+          <pre><code>var shortArr = [9,5,3,1];
+var longArr  = [9,5,3,1,5,4,3,5,6,3,2,3,4,7,5,2,3,4,7,10,23,4,2];
+          </code></pre>
+        </section>
+
+        <section>
+          <pre><code data-trim>describe('Rhyming Number Poem', function() {</code><code class="fragment">  it('should return a string', function() {
+    expect(rhymingNumberPoem(shortArr)).to.be.a('string');
+  });</code><code class="fragment">  it('should return correct number of lines from short array', function() {
+    expect(rhymingNumberPoem(shortArr).split('\n').length).to.equal(shortArr.length);
+  });</code><code class="fragment">  it('should create a short rhyming poem', function() {
+    expect(rhymeChecker(rhymingNumberPoem(shortArr))).to.equal(true);
+  });</code><code class="fragment">  it('should create a long rhyming poem', function() {
+    expect(rhymeChecker(rhymingNumberPoem(longArr))).to.equal(true);
+  });</code><code>});</code></pre>
+        </section>
+
+        <!-- break down how what was necessary to test -->
+        <section>
+          <pre><code data-trim>var rhymeChecker = function(str) {
+  var arr = str.split(/,|\./).join('').split("\n");
+  if(str.length < 1 || arr[0].split(' ').length < 3) {
+    return false;
+  }
+  var count = arr.reduce(function(a, b) {
+    var words = b.split(' '),
+        firstWord = words[0].toLowerCase(),
+        lastWord = words[words.length - 1].toLowerCase();
+    if(numberRhymes[firstWord].match(lastWord)) {
+      return a + 1;
+    }
+    return a;
+  }, 0);
+  if(count < arr.length) {
+    return false;
+  }
+  return true;
+};</code></pre>
+        </section>
+
+        <!-- scraped data file -->
+        <section>
+          <pre><code>
+  zero: 'hero giro tiro nonzero subzero',
+  one: 'won done run son none sun gun fun tion ton nun shun sion bun donne dun fon pun rien bn cen gon hun jun tonne tun ven yean naan spun fron seisin stun toucan anyone begun undone outdone outrun spline rerun redone everyone overrun overdone cretonne misdone twentyone'</code></pre>
+        </section>
+
+        <!-- show how to write a test file -->
+        <section>
+          <p>brandenbyers.com/slides/test-them-puzzles/poem.js</p>
+        </section>
+
+        <!-- show how to run a test file using mocha -->
+        <section>
+          <h3><a href="https://github.com/brandenbyers/code-puzzles">github.com/brandenbyers/code-puzzles</a></h3>
+          <p>npm install</p>
+          <p>mocha poem</p>
+        </section>
+
+        <!-- share your puzzles &#45; with the world! -->
+        <section>
+          <h3>Share your Puzzles</h3>
+          <h4>With the World!</h4>
+        </section>
+
+        <section>
+          <h2>Bonfires</h2>
+          <p class="font-small">freecodecamp/seed/challenges/basic-bonfires.json</p>
+          <pre><code class="font-small">
+    {
+      "id": "a26cbbe9ad8655a977e1ceb5",
+      "name": "Bonfire: Find the Longest Word in a String",
+      "dashedName": "bonfire-find-the-longest-word-in-a-string",
+      "difficulty": "1.04",
+      "description": [
+        "Return the length of the longest word in the provided sentence.",
+      ],
+      "challengeSeed": [
+        "function findLongestWord(str) {",
+        "  return str.length;",
+        "}",
+        "",
+        "findLongestWord('The quick brown fox jumped over the lazy dog');"
+      ],
+      "tests": [
+        "expect(findLongestWord('The quick brown fox jumped over the lazy dog')).to.be.a('Number');",
+        "expect(findLongestWord('The quick brown fox jumped over the lazy dog')).to.equal(6);",
+        "expect(findLongestWord('May the force be with you')).to.equal(5);",
+        "expect(findLongestWord('Google do a barrel roll')).to.equal(6);",
+        "expect(findLongestWord('What is the average airspeed velocity of an unladen swallow')).to.equal(8);"
+      ],
+      "MDNlinks": [
+        "String.split()",
+        "String.length"
+      ]
+    }</code></pre>
+        </section>
+
+        <!-- codewars example -->
+        <section>
+          <h3><a href="http://www.codewars.com/kata/new/javascript">codewars.com/kata/new/javascript</a></h3>
+        </section>
+
+        <section>
+          <h2>Write Kickass Puzzles</h2>
+          <ol>
+            <li>Devise a description</li>
+            <li>Generate tests</li>
+            <li>Double, triple, and quadrupal check for edge cases</li>
+            <li>Solve and bathe in dopamine</li>
+            <li>Share/repeat</li>
+          </ol>
+        </section>
+
+        <section>
+          <div class="column-left-image">
+            <img class="stretch" src="img/floating-branden-head-no-shadow.svg" alt="Branden Head">
+          </div>
+          <div class="column-right-image">
+            <h2 class="lowercase">@brandenbyers</h2>
+            <p>Interactive Intelligence</p>
+            <p>Free Code Camp</p>
+            <p>Balance Boards</p>
+            <p>Goats</p>
+          </div>
+        </section>
+
+        <section>
+          <p><a href="midwestjs.com/feedback">midwestjs.com/feedback</a></p>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: false,
+        history: true,
+        center: true,
+        width: 1280,
+        height: 720,
+        margin: 0,
+
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../plugin/zoom-js/zoom.js', async: true },
+          { src: '../plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

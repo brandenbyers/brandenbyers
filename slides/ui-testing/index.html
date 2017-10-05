@@ -1,0 +1,273 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>XCTest UI-Testing</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/ui-testing.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>XCTest UI Testing</h1>
+          <h6>😻 and 🙀 and 😹</h6>
+          <p>&nbsp;</p>
+          <h6>brandenbyers.com/slides/ui-testing/</h6>
+        </section>
+
+        <section>
+          <h1>What is XCTest?</h1>
+          <pre><code>import XCTest
+
+class exampleTests: XCTestCase {
+
+  func testEmojiTranslation() {
+    let app = XCUIApplication()
+    app.launch()
+    emojiTextField = app.textFields["TranslateEmojiField"]
+    emojiTextField.tap()
+    emojiTextField.typeText("👋🌎\n")
+
+    XCTAssert(app.tables.staticTexts["Hello World"].exists, "😞")
+  }
+
+}</code></pre>
+
+        </section>
+
+        <section>
+          <svg width="100%" height="100%" viewBox="0 0 1280 720" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+              <g id="Triangle" transform="matrix(1,0,0,1,-160.131,-46.3856)">
+                  <path d="M771.873,142.415L1096.56,656.788L447.19,656.788L771.873,142.415Z" style="fill:none;stroke-width:2px;stroke:rgb(82,175,211);"/>
+              </g>
+              <g transform="matrix(7.50061,0,0,7.50061,-3029.16,-3797.31)">
+                  <g id="unit">
+                      <text x="461.908px" y="578.337px" style="font-family:'LondrinaSolid-Regular', 'Londrina Solid';font-size:12px;fill:rgb(172,187,198);">Unit T<tspan x="487.984px 492.964px 498.964px 503.596px " y="578.337px 578.337px 578.337px 578.337px ">ests</tspan></text>
+                  </g>
+              </g>
+              <g class="fragment" id="integration" transform="matrix(1,0,0,1,0,-49)">
+                  <g transform="matrix(3.65568,0,0,3.65568,-1161.48,-1734.9)">
+                      <text x="459.01px" y="578.337px" style="font-family:'LondrinaSolid-Regular', 'Londrina Solid';font-size:12px;fill:rgb(172,187,198);">Integra<tspan x="493.726px 498.934px 501.382px " y="578.337px 578.337px 578.337px ">tio</tspan>n</text>
+                  </g>
+                  <g transform="matrix(0.876416,0,0,1,76.7513,-43.8742)">
+                      <path d="M384.063,503.435L836.919,503.435" style="fill:none;stroke-width:2.13px;stroke:rgb(82,175,211);"/>
+                  </g>
+                  <g transform="matrix(0.32559,0,0,1,412.896,-241.196)">
+                      <path d="M384.063,503.435L836.919,503.435" style="fill:none;stroke-width:2.69px;stroke:rgb(82,175,211);"/>
+                  </g>
+              </g>
+              <g transform="matrix(2.52531,0,0,2.52531,-614.84,-1276.32)">
+                  <g class="fragment" id="e2e">
+                      <text x="477.274px" y="578.337px" style="font-family:'LondrinaSolid-Regular', 'Londrina Solid';font-size:12px;fill:rgb(172,187,198);">e2e</text>
+                  </g>
+              </g>
+          </svg>
+        </section>
+
+        <section><img class="stretch" src="img/ice-cream-cone.svg" alt=""></section>
+
+        <section><img class="stretch" src="img/ice-cream-cone-broken.svg" alt=""></section>
+
+        <section>
+          <h1>Stability</h1>
+          <p class="fragment">No longer crashes every other test</p>
+        </section>
+
+        <section>
+          <h2>UIAutomation vs XCTest</h2>
+          <ui>
+            <li class="fragment">UIAutomation == JavaScript</li>
+            <li class="fragment">XCTest == Swift or Obj-c</li>
+            <li class="fragment">UIAutomation Deprecated</li>
+          </ui>
+        </section>
+
+        <section>
+          <h2><strike>UIAutomation vs</strike> XCTest</h2>
+          <ui>
+            <li>UIAutomation == JavaScript</li>
+            <li>XCTest == Swift or Obj-c</li>
+            <li>UIAutomation Deprecated</li>
+          </ui>
+        </section>
+
+        <section>
+          <h2>Alternatives</h2>
+          <ul>
+            <li>KIF</li>
+            <li>Calabash</li>
+          </ul>
+          <p>&nbsp;</p>
+          <h6 class="fragment">must wait for support of new iOS releases</h6>
+        </section>
+
+        <section>
+          <h1>Limitations</h1>
+        </section>
+
+        <section>
+          <h3>Can't background apps</h3>
+          <pre><code>    XCUIDevice.sharedDevice().pressButton(XCUIDeviceButton.Home)</code><code class="fragment">    XCUIDevice.sharedDevice().pressButton(XCUIDeviceButton.VolumeUp)
+    XCUIDevice.sharedDevice().pressButton(XCUIDeviceButton.VolumeDown)</code></pre>
+        </section>
+
+        <section>
+          <h3>Can't do everything a user can do</h3>
+          <!-- TODO: Show gif examples of things that can't be done -->
+        </section>
+
+        <section>
+          <h3>Timing doesn't mirror user behavior</h3>
+          <!-- TODO: Show gif of how it doesn't mirror behavior -->
+        </section>
+
+        <section>
+          <h3>Dependent on accessibility</h3>
+          <!-- TODO: Show accessiblity code and image of storyboard, then another slide of weird selectors needed -->
+        </section>
+
+        <section>
+          <h3>Random test order</h3>
+          <!-- TODO: show test suite with dependencies between test cases, no no, don't do that -->
+        </section>
+
+        <section>
+          <img src="img/slow.gif" alt="">
+          <h3>Slow</h3>
+        </section>
+
+        <section>
+          <!-- TODO: Add image of record button -->
+          <!-- TODO: Add second slide with example of recording output -->
+          <h2>Recording</h2>
+          <ul>
+            <li class="fragment">Doesn't always work</li>
+            <li class="fragment">Crashes semi-regularly</li>
+            <li class="fragment">Good place to start</li>
+          </ul>
+        </section>
+
+        <section><img src="img/timestamp-error.jpg" alt=""></section>
+
+        <section>
+          <h3>Use accesibilityIdentifier</h3>
+          <pre><code>
+let collectionViewsQuery = XCUIApplication().otherElements.
+  containingType(.NavigationBar, identifier: "Home").
+  childrenMatchingType(.Other).element.
+  childrenMatchingType(.Other).element.
+  childrenMatchingType(.Other).element.
+  childrenMatchingType(.CollectionView).element.
+  childrenMatchingType(.Cell).elementBoundByIndex(0).
+  collectionViews
+
+collectionViewsQuery.staticTexts["Help!"].tap()
+          </code></pre>
+        </section>
+
+        <!-- TODO: Add slide with correct identifier and easier selection -->
+
+        <section>
+          <h2>Simulator Keyboard Bug</h2>
+          <p class="fragment">Hardware > Keyboard > Connect Hardware Keyboard</p>
+        </section>
+
+        <section>
+          <h2>Detecting iPhone/iPad</h2>
+          <pre><code>
+if (XCUIApplication().windows.elementBoundByIndex(0).
+  horizontalSizeClass == .Compact || XCUIApplication().windows.
+  elementBoundByIndex(0).verticalSizeClass == .Compact) {
+  // iPhone
+} else {
+  // iPad
+}</code></pre>
+        </section>
+
+        <section>
+          <h2>launchArguments</h2>
+          <pre><code>
+          let app = XCUIApplication()
+          app.launchArguments = [ "USE_MOCK_SERVER" ]
+          app.launch()
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>launchEnvironment</h2>
+          <pre><code>
+          let app = XCUIApplication()
+          app.launchEnvironment = ["testEnv" : "value"]
+          app.launch()
+          </code></pre>
+        </section>
+
+        <section>
+          <p>po print(app.debugDescription) vs print(app.debugDescription)</p>
+        </section>
+
+        <section>
+          <h2>Resources</h2>
+            <p><a href="https://developer.apple.com/reference/xctest/">Apple&#8217;s API Reference</a><br/>
+            <a href="https://developer.apple.com/videos/play/wwdc2016/409/">WWDC 2016 Session 409: Advanced Testing and Continuous Integration</a><br/>
+            <a href="https://developer.apple.com/videos/play/wwdc2015/406/">WWDC 2015 Session 406: UI Testing in Xcode</a><br/>
+            <a href="http://qualitytesting.tumblr.com/post/144462182209/xctest-and-the-page-object-model">Page Object Model</a><br/>
+            <a href="http://masilotti.com/ui-testing-stub-network-data/">UI Testing Stub Network Data</a><br/>
+            <a href="https://aws.amazon.com/device-farm/">AWS Device Farm</a></li><br/>
+            <a href="http://adventuresinqa.com/hands-on-mobile-app-testing/">Hands-On Mobile Testing by Daniel Knott</a></p>
+<!--     &#45; proxy server embeded in app = https://github.com/swisspol/GCDWebServer -->
+        </section>
+
+        <section><img src="img/last-slide.svg" alt=""></section>
+
+      </div>
+    </div>
+
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: false,
+      progress: false,
+      history: true,
+      center: true,
+      width: 1280,
+      height: 720,
+      margin: 0,
+      transition: 'none', // none/fade/slide/convex/concave/zoom
+      backgroundTransition: 'none',
+
+      // More info https://github.com/hakimel/reveal.js#dependencies
+      dependencies: [
+        { src: '../plugin/markdown/marked.js' },
+        { src: '../plugin/markdown/markdown.js' },
+        { src: '../plugin/notes/notes.js', async: true },
+        { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      ]
+    });
+    </script>
+
+</body>
+</html>
