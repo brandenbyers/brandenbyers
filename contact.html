@@ -13,3 +13,60 @@ tags: contact
     <input type="submit" class="button button-pink button-big mobile-block" value="Send">
   </form>
 </div>
+
+<div>
+  <form name="birthday-rsvp" action="/birthday/success/" netlify-honeypot="bot-field" netlify>
+    <div class="column">
+      <p style="visibility:hidden;">
+        <label>Don’t fill this out unless you're a bot: <input name="bot-field"></label>
+<!--<link href="../../css/birthday.css" type="text/css" rel="stylesheet">-->
+    <!--<link href="reset.css" type="text/css" rel="stylesheet">-->
+      </p>
+      <div class="column is-half is-offset-one-quarter">
+
+        <div class="field">
+          <label class="label is-large">Will you be joining us?</label>
+          <div class="control has-icons-left">
+            <div class="select is-large is-fullwidth">
+              <select name="RSVP">
+                <option value="" disabled selected>Joining us?</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control has-icons-left">
+
+            <input id="email" class="input is-large" name="Email" type="email" placeholder="Email">
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control has-icons-left">
+            <input id="child" class="input is-large" name="Child's Name" type="name" placeholder="Child's Name">
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control has-icons-left">
+            <div class="select is-large is-fullwidth">
+              <select name="Number of Children">
+                <option value="" disabled selected>Number of Children</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="has-text-centered">
+          <button type="submit" class="button is-primary is-large is-fullwidth">Submit</button>
+        </div>
+
+      </div>
+  </form>
+</div>
