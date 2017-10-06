@@ -9,7 +9,7 @@ tags: contact
   <form name="hello" class="form-stacked" action="{{ site.baseurl }}/thanks/" netlify-honeypot="bot-field" netlify">
     <input type="text" name="email" class="field-light" placeholder="Email">
     <textarea type="text" name="content" class="field-light" rows="5" placeholder="What would you like to say?"></textarea>
-    <input type="text" name="bot-field" style="display:none">
-    <input type="submit" class="button button-pink button-big mobile-block" value="Send">
+    <input name="bot-field" style="display:none">
+    <input type="submit" class="button button-pink button-big mobile-block">
   </form>
 </div>
