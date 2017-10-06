@@ -6,10 +6,10 @@ tags: contact
 ---
 
 <div class="py2">
-  <form name="hello" class="form-stacked" action="{{ site.baseurl }}/thanks/" netlify-honeypot="bot-field" netlify">
+  <form name="hello" class="form-stacked" netlify-honeypot="bot-field" netlify">
     <input type="text" name="email" class="field-light" placeholder="Email">
     <textarea type="text" name="content" class="field-light" rows="5" placeholder="What would you like to say?"></textarea>
     <input name="bot-field" style="display:none">
-    <input type="submit" class="button button-pink button-big mobile-block">
+    <button type="submit" class="button button-pink button-big mobile-block">Send</button>
   </form>
 </div>
