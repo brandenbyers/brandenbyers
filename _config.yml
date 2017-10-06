@@ -4,7 +4,7 @@ email:       branden@brandenbyers.com
 author:      Branden Byers
 description: "Branden Byers is an iOS Engineer in Test, author, photographer, father, balance geek, and goat herder."
 baseurl:     ""
-url:         "http://brandenbyers.com"
+url:         "https://brandenbyers.com"
 date_format: "%b %-d, %Y"
 
 # Google services
