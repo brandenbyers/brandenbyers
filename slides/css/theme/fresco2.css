@@ -12,7 +12,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
  * GLOBAL STYLES
  *********************************************/
 body {
-  background-color: #FFF; }
+  background-color: #F85C6D; }
 
 .reveal .blue-back {
   background: #abdedc;
@@ -44,7 +44,6 @@ body {
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: normal;
-  /* text-transform: uppercase; */
   text-shadow: 4px 2px 7px #F85C6D;
   word-wrap: break-word;
   padding-bottom: 0.3em; }
@@ -64,7 +63,7 @@ body {
 .reveal h6 {
   font-size: 0.75em;
   font-weight: 400;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "PT Sans", Helvetica, sans-serif; }
 
 /*********************************************
  * OTHER
@@ -132,12 +131,14 @@ body {
   font-style: italic; }
 
 .reveal pre {
+  color: #fff;
+  text-shadow: none;
   display: block;
   position: relative;
   width: 95%;
   margin: 20px auto;
   text-align: left;
-  font-size: 2.9em;
+  font-size: 0.9em;
   font-family: Courier;
   line-height: 1.25em;
   word-wrap: break-word; }
@@ -227,10 +228,6 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2); }
-
-.reveal svg-shadow {
-  -webkit-filter: drop-shadow(3px 3.5px 0px rgba(255, 255, 255, 0.5));
-  filter: drop-shadow(3px 3.5px 0px rgba(255, 255, 255, 0.5)); }
 
 /*********************************************
  * NAVIGATION CONTROLS
