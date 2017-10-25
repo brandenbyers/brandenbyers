@@ -228,6 +228,10 @@ body {
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2); }
 
+.reveal svg-shadow {
+  -webkit-filter: drop-shadow(3px 3.5px 0px rgba(255, 255, 255, 0.5));
+  filter: drop-shadow(3px 3.5px 0px rgba(255, 255, 255, 0.5)); }
+
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
