@@ -2,7 +2,7 @@
 layout:     post
 title:      "Beginner PCB Design with KiCad"
 date:       2019-02-24 12:59:00
-summary:    Designing a PCB is easier than I once thought. Here is an outline for the video guide that I followed to successfully design my first PCB order.
+summary:    Designing a PCB is easier than I once thought. Here is an outline of the video guide that I followed to successfully design my first PCB.
 categories: electronics
 ---
 
