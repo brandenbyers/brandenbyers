@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Thanks For Your Message
+title: Thank you for your message...
 permalink: /thanks/
 ---
-Thanks!
+I will response as soon as possible!
