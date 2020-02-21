@@ -1,2 +1,2 @@
 User-agent: *
-Disallow: /xn--9s8h/
+Disallow: /portfolio/
