@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Testing in Xcode 9</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/xcode-9-testing.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!--<link rel="stylesheet" href="lib/css/zenburn.css">-->
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!--<section><img class="stretch" src="img/.svg" alt=""></section>-->
+        <!--<section data-background-image="img/.jpg"></section>-->
+
+        <section>
+          <h1>Xcode 9<br />UI Testing</h1>
+        </section>
+
+        <section>
+          <h3>Multi-App Testing</h3>
+        </section>
+
+        <section>
+          <pre>XCUIApplication()</pre>
+        </section>
+
+        <section>
+          <pre>XCUIApplication(bundleIdentifier: "")</pre>
+        </section>
+
+        <section>
+          <ul>
+            <li>Extensions</li>
+            <li>App Groups</li>
+          </ul>
+        </section>
+
+        <section>
+          <p>Not just your own apps...</p>
+        </section>
+
+        <section>
+          <pre>XCUIApplication(bundleIdentifier: "com.apple.Preferences")</pre>
+        </section>
+
+        <section><img class="stretch" src="img/network-link-conditioner.gif" alt="XCTest toggle network conditioner"></section>
+
+        <section>
+          <h3>Improved Querying</h3>
+        </section>
+
+        <section>
+          <h2>XCTest Queries</h2>
+          <p class="fragment">Queries find elements</p>
+          <p class="fragment">Queries use Accessibility Data</p>
+          <p class="fragment">Test requests a snapshot</p>
+          <p class="fragment">App captures/serializes snapshot</p>
+          <p class="fragment">App sends data back to test</p>
+        </section>
+
+        <section>
+          <h3>Skip the Snapshot</h3>
+          <p class="fragment">Order of Magnitude Faster</p>
+          <p class="fragment">Eliminates Memory Spikes Completely</p>
+        </section>
+
+        <section>
+          <h2>First Match</h2>
+          <p class="fragment">Removes non-unique query protection</p>
+          <pre class="fragment">app.buttons.firstMatch</pre>
+          <pre class="fragment">app.buttons["Done"].firstMatch</pre>
+          <pre class="fragment">app.navigationBars.buttons["Done"].firstMatch</pre>
+        </section>
+
+        <section>
+          <h1>Test Reporting</h1>
+        </section>
+
+        <section>
+          <h2>Activities</h2>
+        </section>
+
+        <section data-background-video="img/sky-guide-toggle-prefs.mov" data-background-video-loop data-background-video-muted></section>
+
+        <section><img class="stretch" src="img/code-no-activity.png" alt=""></section>
+        <section><img class="stretch" src="img/sky-guide-no-activity.png" alt=""></section>
+
+        <section><img class="stretch" src="img/code-with-activity.png" alt=""></section>
+        <section><img class="stretch" src="img/code-just-activity.png" alt=""></section>
+        <section><img class="stretch" src="img/sky-guide-with-activity.png" alt=""></section>
+
+        <section>
+          <h2>Screenshots</h2>
+          <h2>&amp; Attachments</h2>
+        </section>
+
+        <section><img class="stretch" src="img/screenshots-galaxies.png" alt=""></section>
+
+        <section>
+          <h1>PARALLEL</h1>
+          <h1>PARALLEL</h1>
+          <h1>PARALLEL</h1>
+          <h1>PARALLEL</h1>
+          <h1>PARALLEL</h1>
+        </section>
+
+        <section>
+          <pre>xcodebuild -scheme "tester" \
+  -destination \
+    'platform=iOS Simulator,name=iPhone X,OS=11.0' \
+  -destination \
+    'platform=iOS Simulator,name=iPhone 8,OS=11.0' \
+  -destination \
+    'platform=iOS Simulator,name=iPhone 7s,OS=11.0' \
+  -destination \
+    'platform=iOS Simulator,name=iPhone 7,OS=11.0' \
+  -destination \
+    'platform=iOS Simulator,name=iPhone 6s,OS=11.0' \
+  -destination \
+    'platform=iOS Simulator,name=iPhone 6,OS=11.0' \
+build test</pre>
+        </section>
+
+        <section>
+          <h1>Headless Simulators</h1>
+        </section>
+
+        <section>
+          <h1>Xcode Server</h1>
+        </section>
+
+        <section>
+          <ul>
+            <li>Fastlane</li>
+            <li>xctool</li>
+            <li>BluePill</li>
+            <li>Jenkins, Travis, Circle</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Async Testing</h1>
+        </section>
+
+        <section>
+          <h2>XCTestWaiter</h2>
+        </section>
+
+        <section>
+          <p>Unfulfilled expectations do not automatically fail</p>
+        </section>
+
+        <section>
+          <h2>XCTestWaiterResult</h2>
+          <p>Fail with individual error messages</p>
+          <ul>
+            <li><pre>timeout</pre></li>
+            <li><pre>incorrectOrder</pre></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>XCTestExpectation</h2>
+          <ul>
+            <li class="fragment">XCTPredicateExpectation</li>
+            <li class="fragment">XCTKVOExpectation</li>
+            <li class="fragment">XCTNSNotificationExpectation</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>XCTestExpectation</h2>
+          <ul>
+            <li class="fragment">Multiple Fulfillments</li>
+            <li class="fragment">Inverted Behavior</li>
+            <li class="fragment">Enforce Optional Order</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>XCUISiriService</h1>
+        </section>
+
+        <section>
+          <h2>Enable Siri on Simulator</h2>
+          <p>Hardware &nbsp;&nbsp;>&nbsp;&nbsp; Siri</p>
+        </section>
+
+        <section>
+          <img class="stretch" src="img/floating-branden-head-no-shadow.svg" alt="Branden's Head">
+          <h2>@brandenbyers</h2>
+          <p>brandenbyers.com</p>
+          <p>/slides/xcode-9-testing</p>
+          <a href="https://github.com/brandenbyers/slides/tree/master/xcode-9-testing/exampleTests">example test files</a>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: false,
+      progress: false,
+      history: true,
+      center: true,
+      width: 1280,
+      height: 720,
+      margin: 0,
+      transition: 'none', // none/fade/slide/convex/concave/zoom
+      backgroundTransition: 'none',
+
+      // More info https://github.com/hakimel/reveal.js#dependencies
+      dependencies: [
+        { src: '../plugin/markdown/marked.js' },
+        { src: '../plugin/markdown/markdown.js' },
+        { src: '../plugin/notes/notes.js', async: true },
+        { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      ]
+    });
+    </script>
+
+</body>
+</html>

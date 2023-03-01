@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- SEO -->
+    <title>You Test? Do Test!</title>
+    <meta name="description" content="Whether learning new coding skills or deploying apps to production, testing is integral to success. Learn the differences between unit testing and end-to-end testing and how they fit into a continuous integration workflow. Gain a better grasp on Test Driven Development (TDD) and Test Driven Learning (TDL) and how you can incorporate them into your dev life. The code examples in this talk will focus primarily on web apps and JavaScript but the high level concepts are applicable across languages and platforms. We will also touch on the differences and separate challenges between web and mobile testing.">
+
+    <!-- URL CANONICAL -->
+    <link rel="canonical" href="https://brandenbyers.com/slides/youtestdotest">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
+
+    <!-- CSS Base -->
+    <link rel="stylesheet" type="text/css" media="all" href="static/css/base.css">
+
+    <!-- CSS Colors -->
+    <link rel="stylesheet" type="text/css" media="all" href="static/css/colors.css">
+
+    <!-- Optional - CSS SVG Icons (Font Awesome) -->
+    <link rel="stylesheet" type="text/css" media="all" href="static/css/svg-icons.css">
+
+    <!-- SOCIAL CARDS (ADD YOUR INFO) -->
+
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@brandenbyers">
+    <meta name="twitter:creator" content="@brandenbyers">
+    <meta name="twitter:title" content="You Test? Do Test!">
+    <meta name="twitter:description" content="Whether learning new coding skills or deploying apps to production, testing is integral to success. Learn the differences between unit testing and end-to-end testing and how they fit into a continuous integration workflow.">
+<!--     <meta name="twitter:image" content="../static/images/images.jpg"> -->
+
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" sizes="16x16" href="../static/images/favicons/favicon.png">
+    <link rel="shortcut icon" sizes="32x32" href="../static/images/favicons/favicon-32.png">
+    <link rel="apple-touch-icon icon" sizes="76x76" href="../static/images/favicons/favicon-76.png">
+    <link rel="apple-touch-icon icon" sizes="120x120" href="../static/images/favicons/favicon-120.png">
+    <link rel="apple-touch-icon icon" sizes="152x152" href="../static/images/favicons/favicon-152.png">
+
+    <!-- Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#333333">
+  </head>
+  <body>
+    <header role="banner">
+      <nav role="navigation">
+        <p class="logo"><a href="../index.html" title="Branden Byers">Branden Byers</a></p>
+        <ul>
+          <li class="github">
+            <a rel="external" href="https://github.com/brandenbyers" title="Github">
+              <svg class="fa-github">
+                <use xlink:href="#fa-github"></use>
+              </svg>
+              <em>brandenbyers</em>
+            </a>
+          </li>
+          <li class="twitter">
+            <a rel="external" href="https://twitter.com/brandenbyers" title="Twitter">
+              <svg class="fa-twitter">
+                <use xlink:href="#fa-twitter"></use>
+              </svg>
+              <em>@brandenbyers</em>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main role="main">
+      <article id="webslides">
+
+        <!-- Quick Guide
+          - Each parent <section> in the <article id="webslides"> element is an individual slide.
+          - Vertical sliding = <article id="webslides" class="vertical">
+          - <div class="wrap"> = container 90% / <div class="wrap size-50"> = 45%;
+        -->
+
+        <section class="bg-black-blue aligncenter">
+         <span class="background dark" style="background-image:url('https://source.unsplash.com/6Yo_30FTrm4/')"></span>
+          <!--.wrap = container (width: 90%) with fadein animation -->
+          <div class="wrap">
+            <p class="text-subtitle"></p>
+            <h1 class="text-landing">You Test? Do Test!</h1>
+            <p class="text-intro">How and where testing fits into your busy dev life.</p>
+          </div>
+          <footer>
+            <div class="wrap">
+              <p>
+                <span class="alignleft">
+                  <code>brandenbyers.com/slides/youtestdotest</code>
+                </span>
+                <span class="alignright">
+                  <a href="https://twitter.com/brandenbyers" title="Twitter">
+                    <svg class="fa-twitter">
+                      <use xlink:href="#fa-twitter"></use>
+                    </svg>
+                    @brandenbyers
+                  </a>
+                </span>
+              </p>
+            </div>
+          </footer>
+          <!-- .end .wrap -->
+        </section>
+
+        <section class="fullscreen">
+          <div class="card-50">
+            <figure>
+              <img src="https://source.unsplash.com/MbZqq-HHnAE/800x600" alt="Confused">
+              <figcaption>
+                <a href="https://unsplash.com/@andrewfurlan" title="Andrew Furlan">
+                  <svg class="fa-camera">
+                    <use xlink:href="#fa-camera"></use>
+                  </svg>
+                  Andrew Furlan
+                </a>
+              </figcaption>
+            </figure>
+            <!-- end figure-->
+            <div class="flex-content">
+              <h2>What does it even mean to test?</h2>
+              <p>A procedure intended to establish the quality, performance, or reliability of something, especially before it is taken into widespread use.</p>
+            </div>
+            <!-- end .flex-content-->
+          </div>
+          <!-- end .card-50-->
+        </section>
+
+        <section>
+          <div class="wrap size-50">
+            <h3><strong>Cupellation</strong></h3>
+            <p class="text-intro">Refining process in metallurgy.</p>
+            <p>The word "test" began to be used in the 17th century in place of "cupel."</p>
+            <p class="text-pull-right">Separate "noble" metals such as gold and silver from base metals such as lead and copper.</p>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap">
+            <h1>Testing is an act of refinement.</h1>
+          </div>
+        </section>
+
+        <section>
+          <div class="wrap">
+            <div class="cta">
+              <div class="number">
+                <p><span>Un</span></p>
+              </div>
+              <!--end .number -->
+              <div class="benefit">
+                <p class="text-subtitle">Isolated. Fast.</p>
+                <h3><strong>Unit Testing</strong></h3>
+                <p>Tests a "unit" of code to ensure it does what is expected.</p>
+                <p>Narrow in scope.</p>
+                <p>No dependencies; mocked and stubbed.</p>
+              </div>
+              <!--end .benefit -->
+            </div>
+            <!--end .cta -->
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap">
+            <div class="cta">
+              <div class="number">
+                <p><span>In</span></p>
+              </div>
+              <!--end .number -->
+              <div class="benefit">
+                <p class="text-subtitle">Integrated. Fast.</p>
+                <h3><strong>Integration Testing</strong></h3>
+                <p>Tests multiple parts of an app working together.</p>
+                <p>Broad in scope</p>
+                <p>Many unit tests != an integration test.</p>
+              </div>
+              <!--end .benefit -->
+            </div>
+            <!--end .cta -->
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap">
+            <div class="cta">
+              <div class="number">
+                <p><span>UI</span></p>
+              </div>
+              <!--end .number -->
+              <div class="benefit">
+                <p class="text-subtitle">Integrated. Slower.</p>
+                <h3><strong>User Interface Testing</strong></h3>
+                <p>Focuses primarily on the front-end code.</p>
+                <p>Often conflated with e2e testing.</p>
+                <p>May include visual regression testing.</p>
+              </div>
+              <!--end .benefit -->
+            </div>
+            <!--end .cta -->
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap">
+            <div class="cta">
+              <div class="number">
+                <p><span>e2e</span></p>
+              </div>
+              <!--end .number -->
+              <div class="benefit">
+                <p class="text-subtitle">The whole enchilada. Slowest.</p>
+                <h3><strong>End-to-End Testing</strong></h3>
+                <p>Tests all parts of an app working together.</p>
+                <p>Test as the user could behave.</p>
+                <p>💸💸💸💸💸💸💸💸💸💸</p>
+              </div>
+              <!--end .benefit -->
+            </div>
+            <!--end .cta -->
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap">
+            <img class="aligncenter size-80" src="static/images/testing-pyramid.svg" alt="Testing Pyramid">
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap">
+            <img class="aligncenter size-30" src="static/images/ice-cream-cone.svg" alt="Inverted Testing Pyramid Ice Cream Cone">
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap">
+            <img class="aligncenter size-30" src="static/images/ice-cream-cone-broken.svg" alt="Inverted Testing Pyramid Ice Cream Cone Broken">
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap"><img class="aligncenter size-80" src="static/images/feedback-loop-slow.svg" alt="Slow feedback loop diagram"></div>
+        </section>
+
+        <section>
+          <div class="wrap"><img class="aligncenter size-80" src="static/images/feedback-loop.svg" alt="Faster feedback loop"></div>
+        </section>
+
+        <section>
+         <div class="wrap">
+          <div class="card-50 bg-white">
+            <div class="flex-content">
+              <h2>Chai.js
+              </h2>
+              <p>Assertion Library</p>
+              <ul class="description">
+                <li><code>expect('something').to.contain('thing');</code></li>
+                <li><code>expect('Hello World').to.be.a('string');</code></li>
+              </ul>
+            </div>
+            <!-- end .flex-content-->
+            <img src="static/images/chai-js-screenshot.jpg" alt="CHai.js Screenshot">
+          </div>
+          <!-- .end .card-50 -->
+         </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap size-40">
+              <pre>var add = function (a, b) {
+  return a + b;
+};</pre>
+          </div>
+        </section>
+
+        <section>
+          <div class="wrap size-40">
+              <pre>var add = function (a, b) {
+  return a + b;
+};</pre>
+              <pre class="bg-green">expect(add(2, 2).to.equal(4));</pre>
+          </div>
+        </section>
+
+        <section>
+          <div class="wrap size-40">
+              <pre>var add = function (a, b) {
+  return a + b;
+};</pre>
+              <pre class="bg-green">expect(add(2, 2).to.equal(4));</pre>
+              <pre class="bg-red">expect(add(2, '2').to.not.equal('22'));</pre>
+          </div>
+        </section>
+
+        <section>
+          <div class="wrap size-40">
+              <pre>var add = function (a, b) {
+  return a + b;
+};</pre>
+              <pre class="bg-green">expect(add(2, 2).to.equal(4));</pre>
+              <pre class="bg-red">expect(add(2, '2').to.not.equal('22'));</pre>
+              <pre class="bg-red">expect(add('con','cat').to.not.equal('concat'));</pre>
+          </div>
+        </section>
+
+        <section>
+          <div class="wrap size-40">
+              <pre>var add = function (a, b) {
+  return parseInt(a) + parseInt(b);
+};</pre>
+          </div>
+        </section>
+
+        <section>
+          <div class="wrap size-40">
+              <pre>var add = function (a, b) {
+  return parseInt(a) + parseInt(b);
+};</pre>
+              <pre class="bg-green">expect(add(2, 2).to.equal(4));</pre>
+              <pre class="bg-green">expect(add(2, '2').to.not.equal('22'));</pre>
+              <pre class="bg-green">expect(add('con','cat').to.not.equal('concat'));</pre>
+          </div>
+        </section>
+
+        <section>
+          <div class="wrap size-40">
+              <pre>var add = function (a, b) {
+  return parseInt(a) + parseInt(b);
+};</pre>
+              <pre class="bg-green">expect(add(2, 2).to.equal(4));</pre>
+              <pre class="bg-green">expect(add(2, '2').to.not.equal('22'));</pre>
+              <pre class="bg-green">expect(add('con','cat').to.not.equal('concat'));</pre>
+              <pre class="bg-red">expect(add(2.22, 2.22).to.equal(4.44));</pre>
+          </div>
+        </section>
+
+        <section>
+          <div class="wrap size-40">
+              <pre>var add = function (a, b) {
+  return parseInt(a) + parseInt(b);
+};</pre>
+              <pre class="bg-green">expect(add(2, 2).to.equal(4));</pre>
+              <pre class="bg-green">expect(add(2, '2').to.not.equal('22'));</pre>
+              <pre class="bg-green">expect(add('con','cat').to.not.equal('concat'));</pre>
+              <pre class="bg-red">expect(add(2.22, 2.22).to.equal(4.44));</pre>
+              <p>// AssertionError: expected 4 to equal 4.44</p>
+          </div>
+        </section>
+
+        <section class="bg-black slide-bottom">
+         <span class="background" style="background-image:url('https://source.unsplash.com/ZMZHcvIVgbg/800x600')"></span>
+          <!--.wrap = container (width: 90%) with fadein animation -->
+          <div class="wrap fullscreen">
+            <a href="https://unsplash.com/@aleskrivec" title="Ales Krivec">
+              <svg class="fa-camera">
+                <use xlink:href="#fa-camera"></use>
+              </svg>
+              Ales Krivec
+            </a>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <!--.wrap = container (width: 90%) -->
+          <div class="wrap">
+            <div class="grid vertical-align">
+              <div class="column">
+                <pre>function numberToRomanNumeral(num) {
+  var numeral = "";
+  var arr = [
+    [1000,"M"],[900,"CM"],[500,"D"],[400,"CD"],
+    [100,"C"],[90,"XC"],[50,"L"],[40,"XL"],
+    [10,"X"],[9,"IX"],[5,"V"],[4,"IV"],
+    [1,"I"]
+  ];
+  arr.map(val => {
+    while (num - val[0] >= 0) {
+      num -= val[0];
+      numeral += val[1];
+    }
+  })
+  return numeral;
+}
+console.log(7, numberToRomanNumeral(7));
+console.log(23, numberToRomanNumeral(23));
+console.log(777, numberToRomanNumeral(777));
+console.log(1000, numberToRomanNumeral(1000));</pre>
+              </div>
+              <!-- .end .column -->
+              <div class="column">
+                <pre>7 "VII"</pre>
+                <pre>23 "XXIII"</pre>
+                <pre>777 "DCCLXXVII"</pre>
+                <pre>1000 "M"</pre>
+              </div>
+              <!-- .end .column -->
+            </div>
+            <!-- .end .grid -->
+            <hr>
+            <p class="aligncenter"><a href="http://jsbin.com/piyolud/edit?js,console" alt="JSbin with code">edit this code</a></p>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section class="fullscreen">
+          <div class="wrap">
+            <p data-height="950" data-theme-id="light" data-slug-hash="GEwKab" data-default-tab="js,result" data-user="brndnb" data-embed-version="2" data-pen-title="GEwKab" data-preview="false" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/brndnb/pen/GEwKab/">GEwKab</a> by Branden Byers (<a href="https://codepen.io/brndnb">@brndnb</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+          </div>
+        </section>
+
+        <section>
+          <div class="wrap size-50">
+            <h2>
+              <svg class="fa-heart-o">
+                <use xlink:href="#fa-wrench"></use>
+              </svg>
+              TDD
+            </h2>
+            <p class="text-intro">Test Driven Development</p>
+            <hr>
+            <ul class="description">
+              <li><span class="text-label">Red:</span> Write a unit test that fails.</li>
+              <li><span class="text-label">Green:</span> Write just enough code to make the test pass.</li>
+              <li><span class="text-label">Refactor:</span> Clean up the code you just wrote.</li>
+            </ul>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section class="fullscreen">
+          <div class="wrap">
+            <p data-height="950" data-theme-id="light" data-slug-hash="Mozgdm" data-default-tab="js,result" data-user="brndnb" data-embed-version="2" data-pen-title="Mozgdm" data-preview="false" class="codepen">See the Pen <a href="https://codepen.io/brndnb/pen/Mozgdm/">Mozgdm</a> by Branden Byers (<a href="https://codepen.io/brndnb">@brndnb</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+          </div>
+        </section>
+
+        <section class="fullscreen">
+          <div class="wrap">
+            <p data-height="950" data-theme-id="light" data-slug-hash="MozgRp" data-default-tab="js,result" data-user="brndnb" data-embed-version="2" data-pen-title="MozgRp" data-preview="false" class="codepen">See the Pen <a href="https://codepen.io/brndnb/pen/MozgRp/">MozgRp</a> by Branden Byers (<a href="https://codepen.io/brndnb">@brndnb</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+          </div>
+        </section>
+
+        <section class="fullscreen">
+          <div class="wrap">
+            <p data-height="950" data-theme-id="light" data-slug-hash="NgEKmG" data-default-tab="js,result" data-user="brndnb" data-embed-version="2" data-pen-title="NgEKmG" data-preview="false" class="codepen">See the Pen <a href="https://codepen.io/brndnb/pen/NgEKmG/">NgEKmG</a> by Branden Byers (<a href="https://codepen.io/brndnb">@brndnb</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+          </div>
+        </section>
+
+        <section class="fullscreen">
+          <div class="wrap">
+            <p data-height="950" data-theme-id="light" data-slug-hash="PjxYxr" data-default-tab="js,result" data-user="brndnb" data-embed-version="2" data-pen-title="PjxYxr" data-preview="false" class="codepen">See the Pen <a href="https://codepen.io/brndnb/pen/PjxYxr/">PjxYxr</a> by Branden Byers (<a href="https://codepen.io/brndnb">@brndnb</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+          </div>
+        </section>
+
+
+        <section>
+          <div class="wrap size-50">
+            <h2>
+              <svg class="fa-heart-o">
+                <use xlink:href="#fa-heart-o"></use>
+              </svg>
+              TDL
+            </h2>
+            <p class="text-intro">Test Driven Learning</p>
+            <hr>
+            <ul class="description">
+              <li><span class="text-label">Design:</span> Design a code challenge/puzzle.</li>
+              <li><span class="text-label">All Red:</span> Write full test coverage.</li>
+              <li><span class="text-label">All Green:</span> Code your solution.</li>
+              <li><span class="text-label">Break:</span> Try to break your solution.</li>
+              <li><span class="text-label">Refactor:</span> Refactor your tests to cover any breakage.</li>
+            </ul>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap">
+            <div class="content-left">
+              <h3>Programmer Practice</h3>
+              <ul class="flexblock specs">
+                <li>
+                  <div>
+                    <svg class="fa-futbol-o">
+                      <use xlink:href="#fa-futbol-o"></use>
+                    </svg>
+                    <h2>Athletes Train</h2>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <svg class="fa-futbol-o">
+                      <use xlink:href="#fa-music"></use>
+                    </svg>
+                    <h2>Musicians Rehearse</h2>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <svg class="fa-futbol-o">
+                      <use xlink:href="#fa-medkit"></use>
+                    </svg>
+                    <h2>Doctors and Lawyers Practice</h2>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+         <div class="wrap">
+           <ul class="flexblock">
+             <li><img src="static/images/crow-puzzled.jpg" alt="Crow"></li>
+             <li><img src="static/images/parrot-puzzled.jpg" alt="Parrot"></li>
+           </ul>
+         </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap size-50">
+            <ul class="flexblock plans blink">
+              <li>
+                <a href="#" title="Parrot">
+                  <h2>Parrot</h2>
+                  <div>
+                    <span class="price">Pull, tear, scratch, probe</span>
+                    <ul>
+                      <li>
+                        <svg class="fa-check">
+                          <use xlink:href="#fa-check"></use>
+                        </svg>
+                        <strong>Inquisitive</strong>
+                      </li>
+                      <li>
+                        <svg class="fa-check">
+                          <use xlink:href="#fa-check"></use>
+                        </svg>
+                        <strong>Destructive</strong> exploration
+                      </li>
+                      <li>
+                        <svg class="fa-check">
+                          <use xlink:href="#fa-check"></use>
+                        </svg>
+                        <strong>Playful</strong> learners
+                      </li>
+                      <li>
+                        <svg class="fa-check">
+                          <use xlink:href="#fa-check"></use>
+                        </svg>
+                        <strong>Haphazardly</strong> dig for food</li>
+                    </ul>
+                    <span class="button ghost">Select</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#" title="Crow">
+                  <h2>Crow</h2>
+                  <div>
+                    <span class="price">Graceful, tool users</span>
+                    <ul>
+                      <li>
+                        <svg class="fa-check">
+                          <use xlink:href="#fa-check"></use>
+                        </svg>
+                        <strong>Curious</strong>
+                      </li>
+                      <li>
+                        <svg class="fa-check">
+                          <use xlink:href="#fa-check"></use>
+                        </svg>
+                        <strong>Explores</strong> from a distance
+                      </li>
+                      <li>
+                        <svg class="fa-check">
+                          <use xlink:href="#fa-check"></use>
+                        </svg>
+                        <strong>Methodical</strong> learners
+                      </li>
+                      <li>
+                        <svg class="fa-check">
+                          <use xlink:href="#fa-check"></use>
+                        </svg>
+                        <strong>Precisely</strong> prod for food</li>
+                    </ul>
+                    <span class="button">Select</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap">
+            <h3>Code Challenge Websites</h3>
+            <ul class="flexblock border blink">
+              <li><a href="https://www.codewars.com"><strong>Codewars</strong> Where developers achieve code mastery through challenge.</a></li>
+              <li><a href="https://www.hackerrank.com"><strong>Hacker Rank</strong> Join over 2 million in solving code challenges.</a></li>
+              <li><a href="https://coderbyte.com"><strong>Coder Byte</strong> Practice your progamming skills.</a></li>
+              <li><a href="http://exercism.io"><strong>Exercism</strong> Practice having thoughtful conversations about code.</a></li>
+            </ul>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap">
+            <img class="aligncenter size-80" src="static/images/code-wars.jpg" alt="Code Wars Screenshot">
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap">
+            <img class="aligncenter size-60" src="static/images/dopamine-drip.svg" alt="Dopamine Drip">
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap size-50">
+            <h2>
+              <svg class="fa-pencil">
+                <use xlink:href="#fa-pencil"></use>
+              </svg>
+              Write Kickass Puzzles
+            </h2>
+            <p class="text-intro">Do it for yourself and for the world.</p>
+            <hr>
+            <ul class="description">
+              <li><span class="text-label">Step 1:</span> Devise a description.</li>
+              <li><span class="text-label">Step 2:</span> Generate tests.</li>
+              <li><span class="text-label">Step 3:</span> Double, triple, and quadrupal check for edge cases.</li>
+              <li><span class="text-label">Step 4:</span> Solve and bathe in the dopamine.</li>
+              <li><span class="text-label">Step 5:</span> Share and repeat.</li>
+            </ul>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section class="bg-black slide-bottom">
+         <span class="background dark" style="background-image:url('static/images/test-like-a-user.gif')"></span>
+          <!--.wrap = container (width: 90%) with fadein animation -->
+          <div class="wrap">
+            <p class="text-subtitle"></p>
+            <h1 class="text-landing"><strong>Test Like a User</strong></h1>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section class="fullscreen">
+          <div class="card-50">
+            <figure>
+              <img src="https://source.unsplash.com/HrMD7MngiBE/800x600" alt="Frustration Cat">
+              <figcaption>
+                <a href="https://unsplash.com/@ejleusink" title="Erik-Jan Leusink">
+                  <svg class="fa-camera">
+                    <use xlink:href="#fa-camera"></use>
+                  </svg>
+                  Erik-Jan Leusink
+                </a>
+              </figcaption>
+            </figure>
+            <!-- end figure-->
+            <div class="flex-content">
+              <h2>Flaky Tests; Bad.</h2>
+              <p>"With end-to-end tests, you have to wait: first for the entire product to be built, then for it to be deployed, and finally for all end-to-end tests to run. When the tests do run, <strong>flaky tests tend to be a fact of life</strong>. And even if a test finds a bug, that bug could be anywhere in the product."</p>
+              <p class="text-subtitle">— Mike Wacker, Software Engineer, Google</p>
+            </div>
+            <!-- end .flex-content-->
+          </div>
+          <!-- end .card-50-->
+        </section>
+
+        <!--<section>-->
+          <!--<div class="wrap size-40">-->
+            <!--<h1>UI/e2e Testing</h1>-->
+            <!--<pre></pre>-->
+          <!--</div>-->
+        <!--</section>-->
+
+        <section>
+          <div class="wrap aligncenter">
+            <h1>Bad tests are worse than no tests.</h1>
+          </div>
+        </section>
+
+        <section>
+          <div class="wrap aligncenter">
+            <h1>Who tests the tests?</h1>
+          </div>
+        </section>
+
+      </article>
+    </main>
+    <!--main-->
+
+    <!-- Required -->
+    <script src="static/js/webslides.js"></script>
+
+    <script>
+      window.ws = new WebSlides();
+    </script>
+
+    <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
+    <script defer src="static/js/svg-icons.js"></script>
+
+  </body>
+</html>
