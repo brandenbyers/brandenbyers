@@ -1,4 +1,7 @@
-### Hi there 👋
+### 🦄🦄🦄
+
+💬 Ask me about: fp, coffee, tea, food fermentation, modular synthesizers, and electronics
+😄 Pronouns: he/they
 
 <!--
 **brandenbyers/brandenbyers** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
